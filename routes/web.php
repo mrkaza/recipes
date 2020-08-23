@@ -43,4 +43,7 @@ Route::get('/user/{id}', 'UserController@index')->name('users.index');
 
 Route::post('/comments/{id}', 'RecepieController@comment')->middleware('auth');
 
+Route::post('/recepies/{id}', 'RecepieController@favourites')->middleware('auth');
 
+
+Route::get('/user/{id}/favourites', 'UserController@favourites')->name('users.favourites')->middleware('auth');

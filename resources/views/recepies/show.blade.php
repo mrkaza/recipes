@@ -20,6 +20,10 @@
         <p> Created by:
             <span><a class="text-danger" href="{{route('users.index', $recepie->user->id)}}">{{$recepie->user->name}}</a></span>
         </p>
+        <form action="/recepies/{{$recepie->id}}" method="post">
+            @csrf
+            <button class="btn" type="submit"><i class="far fa-bookmark fa-2x"></i></button>
+        </form>
     </div>
     
     <div class="comments">

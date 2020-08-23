@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center">
-        <h1>Hello {{$user->name}}</h1>
+        <h1>{{$user->name}}'s profile</h1>
     </div>
-   <h3>Your Recepies:</h3>
+   <h3>{{$user->name}}'s Recepies:</h3>
    @if($recepies->count() == 0)
     <p class="text-info">You have no recepies</p>
    @endif
@@ -35,6 +35,11 @@
     </div>
    @endforeach
    </div>
+   @if($user->id == Auth::id())
+   <div class="favourites">
+   <a class="btn" href="{{route('users.favourites', Auth::id())}}">See Favourite Recepies</a>
+   </div>
+   @endif
 
 </div>
 @endsection

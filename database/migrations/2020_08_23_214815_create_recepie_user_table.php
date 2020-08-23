@@ -16,6 +16,7 @@ class CreateRecepieUserTable extends Migration
         Schema::create('recepie_user', function (Blueprint $table) {
             $table->foreignId('user_id');
             $table->foreignId('recepie_id');
+            $table->primary(['user_id','recepie_id']);
         });
     }
 

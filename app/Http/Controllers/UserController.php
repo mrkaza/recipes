@@ -17,4 +17,11 @@ class UserController extends Controller
 
         return view('users.index', ['user'=>$user, 'recepies'=>$recepies]);
     }
+
+    public function favourites($id) {
+        $user = User::findOrFail($id);
+        $recepies = $user->recepies;
+
+        return view('users.favourites',['user'=>$user, 'recepies'=>$recepies]);
+    }
 }

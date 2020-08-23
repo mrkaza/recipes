@@ -18,7 +18,11 @@
                         <p class="time"><i class="far fa-clock"></i> {{$recepie->time}}</p>
                         <p class="desc card-text">{{Str::limit($recepie->description,50)}}</p>
                         <p>Created by: <a href="{{route('users.index', $recepie->user->id)}}" class="user">{{$recepie->user->name}}</a></p>
-
+                        <form action="/recepies/{{$recepie->id}}" method="post">
+                            @csrf
+                            <button class="btn" type="submit"><i class="far fa-bookmark fa-2x"></i></button>
+                           
+                        </form>
                     </div>
                 </div>
             </div>

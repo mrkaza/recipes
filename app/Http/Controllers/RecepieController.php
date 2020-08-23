@@ -87,5 +87,11 @@ class RecepieController extends Controller
         return redirect()->route('users.index', Auth::id());
     }
 
+    public function favourites($id) {
+        $user = Auth::user();
+        $recepie = Recepie::findOrFail($id);
 
+        $recepie->users()->attach($user->id);
+        return redirect()->back();
+    }
 }
