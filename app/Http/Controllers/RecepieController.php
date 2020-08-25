@@ -11,17 +11,13 @@ use App\Comment;
 class RecepieController extends Controller
 {
     public function index() {
-
-        // $recepies = User::find(1)->recepies;
-        // foreach($recepies as $recepie) {
-        //     echo $recepie->name;
-        // }
-
-        // $user = Recepie::find(1);
-        // echo $user->user;
+        $user = Auth::user();
         $recepies = Recepie::all();
 
-        return view('recepies.index',['recepies'=>$recepies]);
+        // $hasRecepie = $user->recepies()->where('id', 1)->exists();
+
+        // echo $hasRecepie;
+        return view('recepies.index',['recepies'=>$recepies,'user'=>$user]);
     }
 
     public function create() {
@@ -92,6 +88,14 @@ class RecepieController extends Controller
         $recepie = Recepie::findOrFail($id);
 
         $recepie->users()->attach($user->id);
+        return redirect()->back();
+    }
+
+    public function delFavourites($id) {
+        $user = Auth::user();
+        $recepie = Recepie::findOrFail($id);
+
+        $recepie->users()->detach($user->id);
         return redirect()->back();
     }
 }

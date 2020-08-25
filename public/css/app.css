@@ -10908,3 +10908,28 @@ a.text-dark:focus {
   opacity: 0.7;
 }
 
+.homepage {
+  background: black;
+  height: 100vh;
+  max-width: 100%;
+  background-image: url(/images/bcg.jpg?a3f0d83508f02933945e816b1bb071c0);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  align-items: center;
+}
+
+.homepage .inside {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  background: black;
+  max-height: 200px;
+}
+
+.homepage .inside h1 {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+

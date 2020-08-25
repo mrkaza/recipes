@@ -20,10 +20,26 @@
         <p> Created by:
             <span><a class="text-danger" href="{{route('users.index', $recepie->user->id)}}">{{$recepie->user->name}}</a></span>
         </p>
+
+        @if(Auth::user())
+
+        @if(!$user->recepies()->where('id',$recepie->id)->exists())
         <form action="/recepies/{{$recepie->id}}" method="post">
             @csrf
-            <button class="btn" type="submit"><i class="far fa-bookmark fa-2x"></i></button>
+            <button class="btn" type="submit"><i class="far fa-bookmark fa-2x"></i></button> 
         </form>
+        @endif
+
+        @if($user->recepies()->where('id',$recepie->id)->exists())
+        <form action="/recepies/{{$recepie->id}}" method="post">
+            @csrf 
+            @method('DELETE')
+            <button class="btn" type="submit"><i class="fas fa-bookmark fa-2x"></i></button>
+        </form> 
+        @endif
+
+        @endif
+
     </div>
     
     <div class="comments">

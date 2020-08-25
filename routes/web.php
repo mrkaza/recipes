@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,7 @@ Route::put('/recepies/{id}','RecepieController@edit')->name('recepies.edit')->mi
 
 Route::post('/recepies', 'RecepieController@store')->name('recepies.store')->middleware('auth');
 
-Route::delete('/recepies/{id}', 'RecepieController@destroy')->name('recepies.destroy')->middleware('auth');
+Route::delete('/recepies/{id}/delete', 'RecepieController@destroy')->name('recepies.destroy')->middleware('auth');
 
 
 
@@ -44,6 +44,8 @@ Route::get('/user/{id}', 'UserController@index')->name('users.index');
 Route::post('/comments/{id}', 'RecepieController@comment')->middleware('auth');
 
 Route::post('/recepies/{id}', 'RecepieController@favourites')->middleware('auth');
+
+Route::delete('/recepies/{id}', 'RecepieController@delFavourites')->middleware('auth');
 
 
 Route::get('/user/{id}/favourites', 'UserController@favourites')->name('users.favourites')->middleware('auth');

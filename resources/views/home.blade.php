@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{route('recepies.index')}}">See recepies</a>
                 </div>
             </div>
         </div>

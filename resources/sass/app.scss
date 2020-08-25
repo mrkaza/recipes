@@ -16,3 +16,30 @@
 .time {
     opacity:0.7;
 }
+
+.homepage {
+    background:black;
+    height: 100vh;
+    max-width: 100%;
+    background-image:url('public/img/bcg.jpg');
+    background-position:center;
+    background-size:contain;
+    background-repeat:no-repeat;
+    align-items:center;
+
+    .inside {
+        display:flex;
+        align-items:center;
+        padding:50px;
+        background:black;
+        max-height: 200px;
+
+        h1 {
+            color:white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+    }
+}
+

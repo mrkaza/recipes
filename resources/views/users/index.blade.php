@@ -36,8 +36,9 @@
    @endforeach
    </div>
    @if($user->id == Auth::id())
-   <div class="favourites">
-   <a class="btn" href="{{route('users.favourites', Auth::id())}}">See Favourite Recepies</a>
+   <div class="favourites d-flex justify-content-around">
+       <a href="{{route('recepies.index')}}" class="btn"><- Back to all recepies</a>
+        <a class="btn btn-danger" href="{{route('users.favourites', Auth::id())}}">See Favourite Recepies</a>
    </div>
    @endif
 
