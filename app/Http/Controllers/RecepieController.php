@@ -12,7 +12,7 @@ class RecepieController extends Controller
 {
     public function index() {
         $user = Auth::user();
-        $recepies = Recepie::all();
+        $recepies = Recepie::orderBy('created_at','desc')->paginate(9);
 
         // $hasRecepie = $user->recepies()->where('id', 1)->exists();
 

@@ -35,6 +35,10 @@
     </div>
    @endforeach
    </div>
+
+   <div class="d-flex justify-content-center mt-3">
+    {{$recepies->links()}}
+    </div>
    @if($user->id == Auth::id())
    <div class="favourites d-flex justify-content-around">
        <a href="{{route('recepies.index')}}" class="btn"><- Back to all recepies</a>

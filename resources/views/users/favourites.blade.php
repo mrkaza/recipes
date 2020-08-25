@@ -39,7 +39,7 @@
    @endforeach
    </div>
 
-   <a class="btn mt-3" href="{{route('users.index', Auth::id())}}"><- Back to your recepies</a>
+   <a class="btn mt-3 mb-5" href="{{route('users.index', Auth::id())}}"><- Back to your recepies</a>
 
 </div>
 @endsection

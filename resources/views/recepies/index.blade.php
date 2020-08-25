@@ -10,7 +10,7 @@
 
     <div class="container mx-auto">
         <div class="row">
-        @foreach($recepies->sortByDesc('created_at') as $recepie)
+        @foreach($recepies as $recepie)
             <div class="recepie col-lg-4 col-md-4 col-sm-1 mt-4">
                 <div class="card">
                     <div class="card-body">
@@ -44,7 +44,12 @@
             </div>
         @endforeach
         </div>
-        <div class="mx-auto d-flex mt-4">
+        <div class="d-flex justify-content-center mt-3">
+            {{$recepies->links()}}
+        </div>
+
+
+        <div class="mx-auto d-flex mt-4 mb-5">
             <a href="{{route('recepies.create')}}" class="btn btn-danger mx-auto">Create recepie</a>
         </div>
         

@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index($id) {
         $user = User::findOrFail($id);
 
-        $recepies = Recepie::all()->where('user_id', $user->id);
+        $recepies = Recepie::where('user_id', $user->id)->paginate(9);
 
         return view('users.index', ['user'=>$user, 'recepies'=>$recepies]);
     }
